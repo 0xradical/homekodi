@@ -1,0 +1,1 @@
+0 * * * * /bin/bash -l -c "if [ $(date +%Y) -gt "1970" ]; then date +%Y.%m.%d-%H:%M:%S > /storage/.config/last_date; fi"
