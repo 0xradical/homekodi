@@ -1,0 +1,1 @@
+ls /storage/hd || systemctl stop service.downloadmanager.transmission.service && umount /storage/hd && systemctl start storage-hd.mount && systemctl start service.downloadmanager.transmission.service && transmission-remote 127.0.0.1:9091 -l | grep Stopped | awk '{print $1}' | sed s/*// | xargs -n 1 -I % transmission-remote 127.0.0.1:9091 -t % -s
