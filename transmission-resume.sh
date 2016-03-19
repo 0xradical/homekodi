@@ -1,0 +1,1 @@
+transmission-remote 127.0.0.1:9091 -l | grep Stopped | awk '{print $1}' | sed s/*// | xargs -n 1 -I % transmission-remote -t % -i | grep 'Hash:' | sed -E s/\ \ Hash:\ \([a-z0-9]\{16}\).*/*\\1.resume/ | xargs -n 1 -I % bash -c 'rm /storage/.cache/transmission/resume/%'
